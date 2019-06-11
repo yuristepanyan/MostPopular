@@ -1,5 +1,19 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="app_name">Most Popular</string>
+
+    <string name="no_internet">Internet connection failed</string>
+
+    <string name="viewed">Viewed</string>
+    <string name="emailed">Emailed</string>
+    <string name="shared">Shared</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="favorites">Favorites</string>
+    <string name="no_data">No data</string>
+    <string name="views">%1$d views</string>
+    <string name="shares">%1$d shares</string>
+    <string name="emails">%1$d emails</string>
+    <string name="open_in_browser">Open in browser</string>
 </resources>
