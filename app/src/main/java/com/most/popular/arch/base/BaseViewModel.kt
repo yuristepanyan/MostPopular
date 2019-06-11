@@ -6,6 +6,7 @@ import com.most.popular.db.ArticleDao
 import com.most.popular.extensions.configureThread
 import com.most.popular.model.Article
 import com.most.popular.model.ArticleDbModel
+import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.subjects.PublishSubject
@@ -32,11 +33,12 @@ open class BaseViewModel(
     }
 
     private fun addArticle() {
-        addArticle.map { ArticleDbModel.valueOf(it) }
-            .flatMapCompletable { articleDao.insertArticle(it).configureThread() }
-            .subscribe()
-            .addTo(disposable)
-        addArticleDbModel.flatMapCompletable { articleDao.insertArticle(it).configureThread() }
+        addArticleLogic(addArticle.map { ArticleDbModel.valueOf(it) })
+        addArticleLogic(addArticleDbModel)
+    }
+
+    private fun addArticleLogic(obs: Observable<ArticleDbModel>) {
+        obs.flatMapCompletable { articleDao.insertArticle(it).configureThread() }
             .subscribe()
             .addTo(disposable)
     }
